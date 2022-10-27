@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue Test</title>
+    <!-- import global vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <img :src="product_image" alt="shoe" style="height: 200px; width: 200px;"> 
+        <p v-if="inventory > 0">In stock</p>
+        <p v-else-if="inventory < 10 && inventory > 0">Almost sold out!</p>
+        <p v-else>Out of stock</p>
+        <p>Details:</p>
+        <ul>
+            <li v-for="detail in details">{{ detail }}</li>
+        </ul>
+        <p>Colors:</p>
+        <ul>
+            <li v-for="variant in variants" :key="variant.id">{{ variant.color }}</li>
+        </ul>
+
+        <p>Cart({{cart}})</p>
+    
+
+        
+    </div>
+    <script>
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
